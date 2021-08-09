@@ -1,0 +1,88 @@
+function hourglassSum(arr) {
+     let count = -1;
+
+  for(let i = 0; i <= 3; i++){
+    for(let j = 0; j <= 3; j++){
+      let sum = arr[i][j] + arr[i][j+1] + arr[i][j+2] + arr[i+1][j+1] 
+      + arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2]
+
+      if(sum > count){
+        count = sum
+      }
+    }
+  }
+  return count;
+}
+
+
+linked list
+function printLinkedList(head) {
+    while(head){
+        console.log(head.data);
+        head=head.next;
+    }
+insert new node
+function insertNodeAtTail(head, data) {
+    if(!head){
+        head=new SinglyLinkedListNode(data,null);
+        return head;
+    }
+    let current=head;
+    while(current.next){
+        current=current.next;
+    }
+    current.next=new SinglyLinkedListNode(data,null);
+    return head;
+    
+
+}
+
+}
+insert node at the head
+function insertNodeAtHead(head, data) {
+
+    const newhead=new SinglyLinkedListNode(data,null);
+    newhead.next=head;
+    head=newhead;
+    return head;
+
+}
+insert node at a specific posiion
+function insertNodeAtPosition(llist, data, position) {
+       if(!llist || position===0){
+           llist=new SinglyLinkedListNode(data,null);
+           return ;
+       }
+       let current=llist;
+       let i=1;
+       while(current){
+           if(i===position){
+               const node=new SinglyLinkedListNode(data,null);
+               node.next=current.next;
+               current.next=node;
+               return llist;
+           }
+           current=current.next;
+           i++;
+       }
+}
+delete a node (c++)
+SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* llist, int position) {
+if (position==0){
+    SinglyLinkedListNode* next= llist->next;
+    delete llist;
+    return next;
+}
+SinglyLinkedListNode* temp= llist;
+SinglyLinkedListNode* prev;
+int pos=0;
+while (temp != nullptr){
+    if(pos==position)break;
+    prev=temp;
+    temp=temp->next;
+    pos++;
+}
+prev->next = temp->next;
+delete temp;
+return llist;
+}
