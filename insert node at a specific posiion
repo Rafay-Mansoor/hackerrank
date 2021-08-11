@@ -1,0 +1,18 @@
+function insertNodeAtPosition(llist, data, position) {
+       if(!llist || position===0){
+           llist=new SinglyLinkedListNode(data,null);
+           return ;
+       }
+       let current=llist;
+       let i=1;
+       while(current){
+           if(i===position){
+               const node=new SinglyLinkedListNode(data,null);
+               node.next=current.next;
+               current.next=node;
+               return llist;
+           }
+           current=current.next;
+           i++;
+       }
+}
