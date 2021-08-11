@@ -6,9 +6,4 @@ function insertNodeAtHead(head, data) {
     return head;
 
 }
-insert node at a specific posiion
-function insertNodeAtPosition(llist, data, position) {
-       if(!llist || position===0){
-           llist=new SinglyLinkedListNode(data,null);
-           return ;
-       }
+
